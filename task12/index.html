@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task12</title>
+</head>
+<body>
+    <form id="myForm">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const obj = {
+                name: document.getElementById('name').value, 
+                age: document.getElementById('age').value,
+                timestampe: new Date().toDateString()
+            }; 
+            alert(`Your name is: ${obj.name}\nYour age is: ${obj.age}\n${obj.timestampe}`);
+        })
+    </script>
+</body>
+</html>

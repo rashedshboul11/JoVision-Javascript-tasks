@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task13</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function() {
+            event.preventDefault(); 
+            const name = document.getElementById("name").value.trim(); 
+            var age; 
+            fetch(`https://api.agify.io?name=${name}`)
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error("Network error", res.status); 
+                }
+                 return res.json(); 
+            })
+            .then(data => {
+                alert(`Name: ${name}\nage: ${data.age}`);
+            })
+            .catch(error => {
+                alert(`Error: ${error.status}`); 
+            }); 
+            
+             
+        })
+    </script>
+</body>
+</html>

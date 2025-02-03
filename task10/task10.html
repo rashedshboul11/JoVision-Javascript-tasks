@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getIp()" id="button">Get IP</button>
+
+    <script>
+        function getIp() {
+        var ip;  
+        fetchRes = fetch("https://api.ipify.org/")
+            .then(response => {return response.text(); })
+            .then(data => {const button = document.getElementById("button").innerHTML = data; }); 
+        }
+
+      
+    </script>
+</body>
+</html>

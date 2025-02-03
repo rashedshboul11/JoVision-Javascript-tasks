@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task11</title>
+</head>
+<body>
+    <button onclick="getIp()" id="button">Get IP</button>
+
+    <script>
+        function getIp() {
+        var ip;  
+        fetchRes = fetch("https://api.ipify.orgx/")
+            .then(response => { if (!response.ok) throw new Error('Network Error status:', response.status); 
+                return response.text(); })
+            .then(data => {const button = document.getElementById("button").innerHTML = data; })
+            .catch(error => alert("Error can not fetch IP")); 
+        }
+    </script>
+</body>
+</html>
